@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Would You Rather? - Play</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #fefefe;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      color: #4f46e5;
+    }
+    #questionBox {
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #e0e7ff;
+      border-radius: 10px;
+      max-width: 600px;
+      font-size: 1.5rem;
+    }
+    button {
+      background-color: #4f46e5;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Play Would You Rather</h1>
+  <div id="questionBox">Click the button to get a question!</div>
+  <button id="nextBtn">Next Question</button>
+  <br><br>
+  <a href="index.html">Back to Home</a>
+
+  <script src="script.js"></script>
+  <script>
+    const questionText = document.getElementById("questionBox");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function showRandomQuestion() {
+      questionText.textContent = getRandomQuestion();
+    }
+
+    nextBtn.addEventListener("click", showRandomQuestion);
+    showRandomQuestion();
+  </script>
+</body>
+</html>
