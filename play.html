@@ -4,42 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Would You Rather? - Play</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background-color: #fefefe;
-      margin: 0;
-      padding: 2rem;
-      text-align: center;
-    }
-    h1 {
-      color: #4f46e5;
-    }
-    #questionBox {
-      margin: 2rem auto;
-      padding: 2rem;
-      background: #e0e7ff;
-      border-radius: 10px;
-      max-width: 600px;
-      font-size: 1.5rem;
-    }
-    button {
-      background-color: #4f46e5;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Play Would You Rather</h1>
-  <div id="questionBox">Click the button to get a question!</div>
-  <button id="nextBtn">Next Question</button>
-  <br><br>
-  <a href="index.html">Back to Home</a>
+  <div class="container">
+    <header class="page-header">
+      <h1>Play Would You Rather</h1>
+    </header>
+
+    <main>
+      <div class="card question-card">
+        <div id="questionBox" class="question-text">Click the button to get a question!</div>
+      </div>
+
+      <div class="text-center">
+        <button id="nextBtn" class="btn btn-primary">Next Question</button>
+      </div>
+
+      <div class="text-center">
+        <a href="index.html" class="btn btn-link">Back to Home</a>
+      </div>
+    </main>
+  </div>
 
   <script src="script.js"></script>
   <script>
