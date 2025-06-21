@@ -122,7 +122,6 @@ const coreQuestions = [
 
 function isValidQuestion(question) {
   const lowerQuestion = question.toLowerCase();
-  // Check if starts with "would you rather" AND has text after it
   return lowerQuestion.startsWith("would you rather") && 
          lowerQuestion.replace("would you rather", "").trim().length > 0;
 }
