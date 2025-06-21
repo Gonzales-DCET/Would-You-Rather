@@ -120,6 +120,10 @@ const coreQuestions = [
   "Would you rather have to always say what you think or never speak again?"
 ];
 
+function isValidQuestion(question) {
+  return question.toLowerCase().startsWith("would you rather");
+}
+
 function getAllQuestions() {
   const userQuestions = JSON.parse(localStorage.getItem("userQuestions")) || [];
   return [...coreQuestions, ...userQuestions];
@@ -132,7 +136,11 @@ function getRandomQuestion() {
 }
 
 function saveUserQuestion(question) {
+  if (!isValidQuestion(question)) {
+    return false;
+  }
   const questions = JSON.parse(localStorage.getItem("userQuestions")) || [];
   questions.push(question);
   localStorage.setItem("userQuestions", JSON.stringify(questions));
+  return true;
 }
