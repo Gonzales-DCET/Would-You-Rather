@@ -16,7 +16,8 @@
     <main>
       <form id="questionForm" class="card form-card">
         <div class="form-group">
-          <input type="text" id="questionInput" placeholder="Enter your 'Would You Rather?' question" required>
+          <input type="text" id="questionInput" placeholder="Enter your 'Would You Rather?' question (must start with 'Would you rather')" required>
+          <p class="error-message" id="errorMessage" style="color: red; display: none;">Question must start with "Would you rather"</p>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -31,14 +32,33 @@
   <script>
     const form = document.getElementById("questionForm");
     const input = document.getElementById("questionInput");
+    const errorMessage = document.getElementById("errorMessage");
+
+    // Real-time validation
+    input.addEventListener("input", function() {
+      const question = input.value.trim();
+      if (question && !question.toLowerCase().startsWith("would you rather")) {
+        input.classList.add("error");
+        errorMessage.style.display = "block";
+      } else {
+        input.classList.remove("error");
+        errorMessage.style.display = "none";
+      }
+    });
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       const question = input.value.trim();
       if (question) {
-        saveUserQuestion(question);
-        alert("Question saved successfully!");
-        input.value = "";
+        if (saveUserQuestion(question)) {
+          alert("Question saved successfully!");
+          input.value = "";
+          input.classList.remove("error");
+          errorMessage.style.display = "none";
+        } else {
+          input.classList.add("error");
+          errorMessage.style.display = "block";
+        }
       }
     });
   </script>
