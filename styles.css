@@ -27,7 +27,6 @@ body {
   padding: 0 1rem;
 }
 
-/* Typography */
 h1, h2, h3 {
   font-weight: 700;
   line-height: 1.2;
@@ -48,12 +47,12 @@ p {
   margin-bottom: 1rem;
 }
 
-/* Layout */
+
 .text-center {
   text-align: center;
 }
 
-/* Cards */
+
 .card {
   background-color: white;
   border-radius: 12px;
@@ -63,7 +62,7 @@ p {
   margin-bottom: 2rem;
 }
 
-/* Buttons */
+
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -113,7 +112,7 @@ p {
   margin-top: 1.5rem;
 }
 
-/* Header */
+
 .hero {
   background: linear-gradient(135deg, var(--primary-color), #7c3aed);
   color: white;
@@ -134,7 +133,7 @@ p {
   color: var(--primary-color);
 }
 
-/* Form Styles */
+
 .form-card {
   max-width: 600px;
   margin: 0 auto;
@@ -158,7 +157,7 @@ input[type="text"]:focus {
   border-color: var(--primary-color);
 }
 
-/* Question Card */
+
 .question-card {
   max-width: 800px;
   margin: 0 auto;
@@ -175,7 +174,7 @@ input[type="text"]:focus {
   justify-content: center;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   h1 {
     font-size: 2rem;
@@ -205,7 +204,7 @@ input::placeholder {
   color: #94a3b8;
   opacity: 1;
 }
-/* Add these new styles */
+
 .error-message {
   margin-top: 0.5rem;
   font-size: 0.875rem;
