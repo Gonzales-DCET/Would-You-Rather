@@ -190,3 +190,18 @@ input[type="text"]:focus {
     padding: 3rem 1rem;
   }
 }
+/* Add these new styles */
+.error-message {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #ef4444;
+}
+
+input.error {
+  border-color: #ef4444 !important;
+}
+
+input::placeholder {
+  color: #94a3b8;
+  opacity: 1;
+}
