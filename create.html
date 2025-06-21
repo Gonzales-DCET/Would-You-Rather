@@ -16,8 +16,8 @@
     <main>
       <form id="questionForm" class="card form-card">
         <div class="form-group">
-          <input type="text" id="questionInput" placeholder="Enter your 'Would You Rather?' question (must start with 'Would you rather')" required>
-          <p class="error-message" id="errorMessage" style="color: red; display: none;">Question must start with "Would you rather"</p>
+          <input type="text" id="questionInput" placeholder="Example: Would you rather have super strength or super speed?" required>
+          <p class="error-message" id="errorMessage" style="display: none;"></p>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -34,11 +34,23 @@
     const input = document.getElementById("questionInput");
     const errorMessage = document.getElementById("errorMessage");
 
-    // Real-time validation
+    function validateQuestion(question) {
+      if (!question.toLowerCase().startsWith("would you rather")) {
+        return "Question must start with 'Would you rather'";
+      }
+      if (question.toLowerCase().replace("would you rather", "").trim().length === 0) {
+        return "Please complete the question after 'Would you rather'";
+      }
+      return "";
+    }
+
     input.addEventListener("input", function() {
       const question = input.value.trim();
-      if (question && !question.toLowerCase().startsWith("would you rather")) {
+      const error = validateQuestion(question);
+      
+      if (error) {
         input.classList.add("error");
+        errorMessage.textContent = error;
         errorMessage.style.display = "block";
       } else {
         input.classList.remove("error");
@@ -49,16 +61,20 @@
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       const question = input.value.trim();
-      if (question) {
-        if (saveUserQuestion(question)) {
-          alert("Question saved successfully!");
-          input.value = "";
-          input.classList.remove("error");
-          errorMessage.style.display = "none";
-        } else {
-          input.classList.add("error");
-          errorMessage.style.display = "block";
-        }
+      const error = validateQuestion(question);
+      
+      if (error) {
+        input.classList.add("error");
+        errorMessage.textContent = error;
+        errorMessage.style.display = "block";
+        return;
+      }
+
+      if (saveUserQuestion(question)) {
+        alert("Question saved successfully!");
+        input.value = "";
+        input.classList.remove("error");
+        errorMessage.style.display = "none";
       }
     });
   </script>
